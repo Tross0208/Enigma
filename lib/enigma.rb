@@ -18,5 +18,17 @@ class Enigma
     end
     square_date.map {|num| num.to_i}
   end
-  #require 'pry'; binding.pry
+
+  def get_shift(key, date)
+    shift = []
+    keys =  self.get_keys(key)
+    offset = self.get_offset(date)
+    i = 0
+    while i < 4 do
+      shift << (keys[i]+offset[i])
+      i +=1
+    end
+    return shift
+  end
+#  require 'pry'; binding.pry
 end
