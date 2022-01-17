@@ -5,5 +5,14 @@ class Enigma
   include Shifter
   include Crypt
 
+  def encrypt(message, key, date)
+    encrypt_hash = {}
+    shift = get_shift(key, date)
+    encrypt_hash[:encryption] = encrypt_message(message, shift)
+    encrypt_hash[:key] = key
+    encrypt_hash[:date] = date
+
+    return encrypt_hash
+  end
 
 end
