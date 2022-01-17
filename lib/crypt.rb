@@ -17,7 +17,7 @@ module Crypt
   end
 
   def decrypt_message(message, shift)
-    self.encrypt(message, shift, true)
+    self.encrypt_message(message, shift, true)
   end
     #require 'pry'; binding.pry
 end

@@ -15,4 +15,16 @@ class Enigma
     return encrypt_hash
   end
 
+  def decrypt(message, key, date)
+    encrypt_hash = {}
+    shift = get_shift(key, date)
+    encrypt_hash[:encryption] = decrypt_message(message, shift)
+    encrypt_hash[:key] = key
+    encrypt_hash[:date] = date
+
+    return encrypt_hash
+  end
+
+
+
 end
