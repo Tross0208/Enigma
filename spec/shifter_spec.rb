@@ -5,16 +5,9 @@ require './lib/enigma'
 require 'date'
 
 RSpec.describe Shifter do
-  it "exists" do
-    enigma = Enigma.new
-
-    expect(enigma).to be_instance_of(Enigma)
-  end
 
   it "can get keys" do
     enigma = Enigma.new
-
-
 
     expect(enigma.get_keys("02715")).to be_instance_of(Array)
   end
