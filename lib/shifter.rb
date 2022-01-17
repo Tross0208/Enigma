@@ -41,4 +41,14 @@ module Shifter
     date.strftime('%d%m%y')
   end
 
+  def valid_key(key)
+    if key == false
+      key = rand(0..99999).to_s
+    end
+    while key.length < 5 do
+      key = key.prepend('0')
+    end
+    return key
+  end
+
 end

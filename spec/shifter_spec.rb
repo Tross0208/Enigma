@@ -55,5 +55,14 @@ RSpec.describe Shifter do
   expect(valid_date("1234").length).to eq(6)
 end
 
+it "validates key" do
+
+expect(valid_key(false)).to be_instance_of(String)
+expect(valid_key(false).length).to eq(5)
+
+expect(valid_key("1234")).to be_instance_of(String)
+expect(valid_key("1234").length).to eq(5)
+end
+
 
 end
