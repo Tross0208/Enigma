@@ -28,4 +28,27 @@ module Shifter
     end
     return shift
   end
+
+  def valid_date(date)
+    if (date == false) || (date.length !=6)
+      date = self.get_date
+    end
+    return date
+  end
+
+  def get_date
+    date = Date.today
+    date.strftime('%d%m%y')
+  end
+
+  def valid_key(key)
+    if key == false
+      key = rand(0..99999).to_s
+    end
+    while key.length < 5 do
+      key = key.prepend('0')
+    end
+    return key
+  end
+
 end
