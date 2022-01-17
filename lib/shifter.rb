@@ -28,4 +28,17 @@ module Shifter
     end
     return shift
   end
+
+  def valid_date(date)
+    if (date == false) || (date.length !=6)
+      date = self.get_date
+    end
+    return date
+  end
+
+  def get_date
+    date = Date.today
+    date.strftime('%d%m%y')
+  end
+
 end

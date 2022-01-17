@@ -5,6 +5,7 @@ require './lib/enigma'
 require 'date'
 
 RSpec.describe Shifter do
+  include Shifter
 
   it "can get keys" do
     enigma = Enigma.new
@@ -39,5 +40,20 @@ RSpec.describe Shifter do
 
     expect(enigma.get_shift("02715", "040895")).to eq([3, 27, 73, 20])
   end
+  it "gets date" do
+
+  expect(get_date).to be_instance_of(String)
+  expect(get_date.length).to eq(6)
+  end
+
+  it "validates date" do
+
+  expect(valid_date(false)).to be_instance_of(String)
+  expect(valid_date(false).length).to eq(6)
+
+  expect(valid_date("1234")).to be_instance_of(String)
+  expect(valid_date("1234").length).to eq(6)
+end
+
 
 end
