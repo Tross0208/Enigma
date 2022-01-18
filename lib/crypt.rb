@@ -13,6 +13,8 @@ module Crypt
       if @char_set.include?(char)
         this_shift = shift[index%4]
         new_message << @char_set[(@char_set.index(char) + this_shift)%27]
+      else
+        new_message << char
       end
     end
     new_message.join()
