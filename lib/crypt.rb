@@ -7,7 +7,7 @@ module Crypt
     if decrypt == true
       @char_set = @char_set.reverse
     end
-    message = message.split(//)
+    message = message.downcase.split(//)
     new_message = []
     message.each_with_index do |char, index|
       if @char_set.include?(char)

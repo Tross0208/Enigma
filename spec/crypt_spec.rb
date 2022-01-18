@@ -13,6 +13,12 @@ RSpec.describe Crypt do
     expect(enigma.encrypt_message("hello world", [3, 27, 73, 20])).to eq("keder ohulw")
   end
 
+  it "encrypts uppercase message" do
+    enigma = Enigma.new
+
+    expect(enigma.encrypt_message("HELLO WORLD", [3, 27, 73, 20])).to eq("keder ohulw")
+  end
+
   it "decrypts message" do
     enigma = Enigma.new
 
