@@ -1,6 +1,8 @@
+require 'date'
 module Shifter
 
   def get_keys(key)
+    #key = valid_key(key)
     keys = [0, 0, 0, 0]
     keys.each_with_index do |num, index|
       keys[index] = (10*(key[index].to_i))+(key[index+1].to_i)
@@ -9,6 +11,7 @@ module Shifter
   end
 
   def get_offset(date)
+    #date = valid_date(date)
     square_date = (date.to_i*date.to_i).to_s
     square_date = square_date.split("")
     while square_date.length > 4 do

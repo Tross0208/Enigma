@@ -5,8 +5,10 @@ class Enigma
   include Shifter
   include Crypt
 
-  def encrypt(message, key, date)
+  def encrypt(message, key = false, date = false)
     encrypt_hash = {}
+    key = valid_key(key)
+    date = valid_date(date)
     shift = get_shift(key, date)
     encrypt_hash[:encryption] = encrypt_message(message, shift)
     encrypt_hash[:key] = key

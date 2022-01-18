@@ -10,8 +10,10 @@ module Crypt
     message = message.split(//)
     new_message = []
     message.each_with_index do |char, index|
-      this_shift = shift[index%4]
-      new_message << @char_set[(@char_set.index(char) + this_shift)%27]
+      if @char_set.include?(char)
+        this_shift = shift[index%4]
+        new_message << @char_set[(@char_set.index(char) + this_shift)%27]
+      end
     end
     new_message.join()
   end
