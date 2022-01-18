@@ -7,12 +7,14 @@ module Crypt
     if decrypt == true
       @char_set = @char_set.reverse
     end
-    message = message.split(//)
+    message = message.downcase.split(//)
     new_message = []
     message.each_with_index do |char, index|
       if @char_set.include?(char)
         this_shift = shift[index%4]
         new_message << @char_set[(@char_set.index(char) + this_shift)%27]
+      else
+        new_message << char
       end
     end
     new_message.join()
